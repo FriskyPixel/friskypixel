@@ -1,0 +1,82 @@
+.samples {
+  @include section;
+  background: $red;
+
+  & .container {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__heading {
+    @include heading-right($red, white, $dark);
+  }
+
+  &__content {
+    width: 100%;
+  }
+
+  &__categories {
+    display: flex;
+    color: $light-gray;
+    margin-bottom: 1.5em;
+  }
+
+  &__category {
+    flex-basis: 50%;
+  }
+
+  &__title {
+    cursor: pointer;
+    display: inline-block;
+    transform-origin: left;
+    transform: scale(1);
+    transition: transform 0.25s;
+
+    &:hover,
+    &.active {
+      color: white;
+      transform: scale(1.4);
+    }
+  }
+
+  &__samples {
+    margin-right: 2em;
+  }
+
+  &__list--web-dev {
+    height: 600px;
+    background: blue;
+  }
+  &__list--video {
+    height: 600px;
+    background: green;
+  }
+}
+
+@media screen and (max-width: $media-query) {
+  .samples {
+    & .container {
+      flex-direction: column;
+    }
+
+    &__heading {
+      @include heading-mobile;
+    }
+
+    &__categories {
+      justify-content: space-around;
+    }
+
+    &__category {
+      flex-basis: auto;
+    }
+
+    &__title {
+      transform-origin: center;
+    }
+
+    &__samples {
+      margin-right: 0;
+    }
+  }
+}

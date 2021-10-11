@@ -1,0 +1,65 @@
+.contact {
+  @include section;
+  background: $dark;
+
+  & .container {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__heading {
+    @include heading-right($dark, white, $red);
+  }
+
+  &__content {
+    font-size: 1.25rem;
+    text-align: justify;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding-left: 2em;
+  }
+
+  &__list {
+    padding-right: 2em;
+  }
+
+  &__item {
+    font-size: 2.75rem;
+    margin-bottom: 0.5em;
+
+    & a {
+      display: inline-block;
+      color: white;
+      transform-origin: left;
+      transform: scale(1);
+      transition: transform 0.25s;
+
+      &:hover {
+        transform: scale(1.05);
+      }
+    }
+
+    & .fa-linkedin {
+      font-size: 6rem;
+    }
+  }
+}
+
+@media screen and (max-width: $media-query) {
+  .contact {
+    & .container {
+      flex-direction: column;
+    }
+
+    &__heading {
+      @include heading-mobile;
+    }
+
+    &__content {
+      text-align: justify;
+      display: block;
+      padding-left: 0;
+    }
+  }
+}
