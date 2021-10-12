@@ -3,13 +3,10 @@ const navList = document.querySelector(".nav__list");
 const links = document.querySelector(".nav__list");
 const sections = document.querySelectorAll(".hero, section");
 const hero = document.querySelector(".hero");
-const samplesCategories = document.querySelector(".samples__categories");
-const samplesCategory = document.querySelectorAll(".samples__category");
-const samplesSection = document.querySelector(".samples__samples");
-const samplesWeb = document.querySelector(".samples__list--web-dev");
-const samplesVideo = document.querySelector(".samples__list--video");
-
-console.log(samplesCategory);
+const samplesCategoryContainer = document.querySelector(".samples__categories");
+const samplesCategories = document.querySelectorAll(".samples__category");
+const samplesListContainer = document.querySelector(".samples__list-container");
+const samplesLists = document.querySelectorAll(".samples__list");
 
 // ****************************************************
 // NAV HAMBURGER ANIMATION / MOBILE LINK ACCORDION OPEN
@@ -102,19 +99,51 @@ function parallax() {
 // SAMPLES SECTION CATEGORY SWITCHING
 // **********************************
 
-samplesCategories.addEventListener("click", changeSamples);
+let slideWidth;
 
-function changeSamples(e) {
+// Set the size of each sample category and place them side-by-side
+window.addEventListener("resize", setSlideWidth);
+document.addEventListener("scroll", setSlideWidth);
+
+function setSlideWidth() {
+  slideWidth = samplesLists[0].getBoundingClientRect().width;
+  samplesLists[1].style.left = slideWidth + "px";
+}
+
+// Change which sample category is active
+samplesCategoryContainer.addEventListener("click", changeActiveSample);
+
+function changeActiveSample(e) {
   e.preventDefault();
 
-  if (e.target.classList.contains("samples__title")) {
-    if (e.target.classList.contains("active")) {
-      return;
-    } else {
-      for (category of samplesCategory) {
-        console.log(category);
-        category.firstElementChild.classList.toggle("active");
-      }
+  let clicked = e.target;
+
+  // Only change the active section if one of the titles was clicked
+  if (clicked.classList.contains("samples__title")) {
+    // Only change the active section if you click on the non-active title
+    if (!clicked.classList.contains("active")) {
+      // Change which title is active
+      changeCategoryTitle();
+      // Change which section is shown
+      changeSection();
     }
+  }
+}
+
+function changeCategoryTitle() {
+  for (category of samplesCategories) {
+    category.firstElementChild.classList.toggle("active");
+  }
+}
+
+function changeSection() {
+  samplesListContainer.style.transform = samplesLists[0].classList.contains(
+    "active"
+  )
+    ? `translateX(-100%)`
+    : `translateX(0)`;
+
+  for (list of samplesLists) {
+    list.classList.toggle("active");
   }
 }

@@ -17,12 +17,13 @@
 
   &__categories {
     display: flex;
-    color: $light-gray;
-    margin-bottom: 1.5em;
+    color: $dark;
+    margin-bottom: 1.3em;
   }
 
   &__category {
     flex-basis: 50%;
+    position: relative;
   }
 
   &__title {
@@ -40,16 +41,71 @@
   }
 
   &__samples {
+    position: relative;
+    overflow: hidden;
+    height: 600px;
     margin-right: 2em;
+
+    // DELETE
+    & img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
   }
 
-  &__list--web-dev {
-    height: 600px;
-    background: blue;
+  &__list-container {
+    width: 100%;
+    height: 100%;
+    transition: transform 0.25s;
   }
+
+  &__list {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+  }
+
   &__list--video {
-    height: 600px;
-    background: green;
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: white;
+
+    & a {
+      color: white;
+      text-decoration: underline;
+
+      &:hover,
+      &:hover i {
+        color: $dark;
+      }
+    }
+
+    & i {
+      color: white;
+      font-size: 1rem;
+      padding-left: 0.5em;
+    }
+  }
+
+  &__item--video {
+    position: relative;
+    width: 100%;
+    height: 0;
+    padding-bottom: 56.25%;
+    margin-bottom: 1em;
+
+    & iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
   }
 }
 
