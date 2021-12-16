@@ -17,13 +17,12 @@
 
   &__categories {
     display: flex;
-    color: $dark;
-    margin-bottom: 1.3em;
+    color: $light-gray;
+    margin-bottom: 2em;
   }
 
   &__category {
-    flex-basis: 50%;
-    position: relative;
+    margin-right: 7em;
   }
 
   &__title {
@@ -36,6 +35,7 @@
     &:hover,
     &.active {
       color: white;
+      text-decoration: underline;
       transform: scale(1.4);
     }
   }
@@ -43,34 +43,113 @@
   &__samples {
     position: relative;
     overflow: hidden;
-    height: 600px;
     margin-right: 2em;
-
-    // DELETE
-    & img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
   }
 
   &__list-container {
     width: 100%;
     height: 100%;
-    transition: transform 0.25s;
+    transition: transform 0.35s;
   }
 
   &__list {
     width: 100%;
+    height: 100%;
+    min-height: 600px;
     display: flex;
+    align-items: stretch;
+  }
+
+  &__list--web {
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+
+  &__item--web {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    position: relative;
+    background: white;
+    width: 49.5%;
+    border-radius: 0.5em;
+    padding: 1em;
+    margin-bottom: 0.5em;
+
+    & > * {
+      z-index: 2;
+    }
+
+    &::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      border-radius: 0.5em;
+      background-repeat: no-repeat;
+      background-position: left;
+      background-size: 200%;
+      opacity: 0.08;
+    }
+
+    &:nth-child(1):before {
+      background-image: url(/_img/logos/friskypixel.png);
+    }
+
+    &:nth-child(2):before {
+      background-image: url(/_img/logos/tweddle.png);
+    }
+
+    &:nth-child(3):before {
+      background-image: url(/_img/logos/udacity.png);
+      background-size: 100%;
+    }
+
+    &:nth-child(4):before {
+      background-image: url(/_img/logos/udemy.png);
+    }
+  }
+
+  &__item--title {
+    color: $red;
+    font-size: 1.5rem;
+    margin-bottom: 0.5em;
+  }
+
+  &__item--description {
+    margin-bottom: 2em;
+  }
+
+  &__item--links {
+    margin-top: auto;
+  }
+
+  &__item--link {
+    display: inline-block;
+    width: 30%;
+    min-width: 100px;
+    color: white;
+    background: $dark;
+    text-align: center;
+    border-radius: 0.5em;
+    padding: 0.5em;
+    margin-right: 0.5em;
+    transition: all 0.25s;
+
+    &:hover {
+      color: $dark;
+      background: $gray;
+    }
+  }
+
+  &__list--video {
     flex-direction: column;
     align-items: center;
     position: absolute;
     top: 0;
     bottom: 0;
-  }
-
-  &__list--video {
     font-size: 1.25rem;
     font-weight: 700;
     color: white;
@@ -111,6 +190,8 @@
 
 @media screen and (max-width: $media-query) {
   .samples {
+    @include mobile-section;
+
     & .container {
       flex-direction: column;
     }
@@ -125,14 +206,28 @@
 
     &__category {
       flex-basis: auto;
+      margin-right: 0;
+    }
+    &__category {
+      margin-right: 0;
     }
 
     &__title {
       transform-origin: center;
+
+      &:hover,
+      &.active {
+        transform: scale(1.15);
+      }
     }
 
     &__samples {
       margin-right: 0;
+    }
+
+    &__item--web {
+      width: 100%;
+      margin-bottom: 2em;
     }
   }
 }

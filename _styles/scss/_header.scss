@@ -2,9 +2,9 @@
   width: 100%;
   height: 100vh;
   min-height: 300px;
-  background: url(/_img/bruce-mars-xj8qrWvuOEs-unsplash.jpg);
+  background: url(/_img/alejandro-escamilla-LF8gK8-HGSg-unsplash.jpg);
   background-size: cover;
-  background-position: top right;
+  background-position: top center;
   padding: 6em 2em;
   position: relative;
 
@@ -60,12 +60,23 @@
     height: 50vh;
 
     &__title {
-      font-size: 2.5rem;
+      font-size: 1.75rem;
     }
 
     &__title::before,
     &__title::after {
-      font-size: 1.25rem;
+      position: absolute;
+      font-size: 1rem;
+    }
+    &__title::before {
+      top: -3px;
+      left: 3px;
+    }
+
+    &__title::after {
+      right: 0;
+      // bottom: -38px;
+      text-align: end;
     }
   }
 }

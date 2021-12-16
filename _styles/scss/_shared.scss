@@ -2,7 +2,6 @@ $dark: #261419;
 $light-gray: #bfbfbd;
 $gray: #736963;
 $red: #a62d43;
-// $red2: #a62929;
 $media-query: 768px;
 
 *,
@@ -45,61 +44,16 @@ ul {
 }
 
 //
-// Image Banners
-//
-
-.image-banner {
-  height: 250px;
-  background-size: cover;
-  background-position: center;
-  background-attachment: fixed;
-  filter: grayscale(0.8) blur(0.1em);
-  position: relative;
-  &::after {
-    content: "";
-    background: black;
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    opacity: 0.7;
-  }
-}
-
-.image-banner:nth-of-type(1) {
-  background-image: url(/_img/florian-olivo-4hbJ-eymZ1o-unsplash.jpg);
-}
-
-.image-banner:nth-of-type(2) {
-  background-image: url(/_img/peter-stumpf-yk9VXp4W5-Q-unsplash.jpg);
-}
-
-.image-banner:nth-of-type(3) {
-  background-image: url(/_img/pankaj-patel-1IW4HQuauSU-unsplash.jpg);
-}
-
-.image-banner:nth-of-type(4) {
-  background-image: url(/_img/sarath-p-raj-p8GmCEgSmmo-unsplash.jpg);
-}
-
-.image-banner:nth-of-type(5) {
-  background-image: url(/_img/beqa-shavidze-QsGq1qIITBI-unsplash.jpg);
-}
-
-@media screen and (max-width: $media-query) {
-  .image-banner {
-    display: none;
-  }
-}
-
-//
 // Sections
 //
 
 @mixin section {
   width: 100%;
   padding: 12em 2em;
+}
+
+@mixin mobile-section {
+  padding: 6em 2em;
 }
 
 //
@@ -133,12 +87,11 @@ ul {
 @mixin heading-mobile {
   order: 0;
   font-size: 3rem;
-  text-align: left;
   writing-mode: horizontal-tb;
   text-orientation: upright;
   transform: rotate(0);
   border-left-width: 0;
   border-bottom-width: 1.25rem;
-  padding: 0.75em;
+  padding: 0.25em;
   margin-bottom: 1em;
 }

@@ -1,6 +1,6 @@
 .experience {
   @include section;
-  background: $gray;
+  background: $dark;
 
   & .container {
     display: flex;
@@ -8,7 +8,7 @@
   }
 
   &__heading {
-    @include heading-right($gray, white, $red);
+    @include heading-right($dark, white, $red);
   }
 
   &__list {
@@ -27,7 +27,7 @@
       "title img"
       "dates location";
     width: 100%;
-    background: linear-gradient(to right, white 50%, $red 50%);
+    background: linear-gradient(to right, $light-gray 50%, $red 50%);
     border-radius: 0.5em;
     margin-right: 2em;
     margin-bottom: 2em;
@@ -82,10 +82,35 @@
     color: $dark;
     font-style: oblique;
   }
+
+  &__linkedin {
+    color: white;
+    font-size: 1.25rem;
+    font-weight: 700;
+    text-align: center;
+
+    & a {
+      color: white;
+      text-decoration: underline;
+
+      &:hover,
+      &:hover i {
+        color: $dark;
+      }
+    }
+
+    & i {
+      color: white;
+      font-size: 1rem;
+      padding-left: 0.5em;
+    }
+  }
 }
 
 @media screen and (max-width: $media-query) {
   .experience {
+    @include mobile-section;
+
     & .container {
       flex-direction: column;
     }
@@ -100,6 +125,22 @@
 
     &__item {
       margin-right: 0;
+    }
+
+    &__job-title {
+      font-size: 1.25rem;
+    }
+
+    &__company {
+      font-size: 1rem;
+    }
+
+    &__date {
+      font-size: 0.9rem;
+    }
+
+    &__linkedin {
+      font-size: 1rem;
     }
   }
 }

@@ -84,6 +84,8 @@
 
 @media screen and (max-width: $media-query) {
   .education {
+    @include mobile-section;
+
     & .container {
       flex-direction: column;
     }
@@ -102,6 +104,14 @@
 
     &__category {
       margin-left: 0;
+    }
+
+    &__school-name {
+      font-size: 1.5rem;
+    }
+
+    &__class {
+      font-size: 1rem;
     }
   }
 }
