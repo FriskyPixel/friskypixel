@@ -54,7 +54,7 @@
 
   .title {
     font-size: 2rem;
-    font-weight: 300;
+    font-weight: 400;
     box-shadow: 0 0 var(--c-red);
     transition: box-shadow 0.75s ease-in-out;
 
@@ -65,7 +65,7 @@
 
   .subtitle {
     font-size: 1.5rem;
-    font-weight: 100;
+    font-weight: 300;
     box-shadow: 0 0 var(--c-red);
     transition: box-shadow 0.75s ease-in-out 0.2s;
 
