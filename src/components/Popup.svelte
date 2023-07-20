@@ -18,7 +18,7 @@
 </script>
 
 <div transition:fade={{ duration: 125, easing: cubicInOut }}>
-  <div class="background" on:click={closePopup} />
+  <div class="background" on:click={closePopup} role="none" />
 
   <div class="popup">
     <div
