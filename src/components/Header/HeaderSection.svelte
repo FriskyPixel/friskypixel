@@ -13,7 +13,9 @@
   <div class="hero">
     <div class="container">
       <h1 class="title" class:shadow>David Frisk</h1>
-      <div class="subtitle" class:shadow>Video Editor // Web Developer</div>
+      <div class="subtitle" class:shadow>
+        Video Editor <span>//</span> Web Developer
+      </div>
     </div>
   </div>
 </header>
@@ -68,6 +70,12 @@
     font-weight: 300;
     box-shadow: 0 0 var(--c-red);
     transition: box-shadow 0.75s ease-in-out 0.2s;
+
+    span {
+      color: var(--c-red);
+      font-weight: 400;
+      padding: 0 0.3em;
+    }
 
     &.shadow {
       box-shadow: 0.7rem 0.7rem var(--c-red);
