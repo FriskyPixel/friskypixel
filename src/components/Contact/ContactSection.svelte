@@ -23,9 +23,10 @@
     color: var(--c-black);
     transform-origin: left;
     transform: scale(1);
-    transition: transform 0.25s;
+    transition: all 0.25s;
 
     &:hover {
+      color: var(--c-red);
       transform: scale(1.02);
     }
   }
